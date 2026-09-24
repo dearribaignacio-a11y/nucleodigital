@@ -1,0 +1,539 @@
+{
+  "_como_usar": [
+    "Este archivo alimenta las tarjetas de Inicio, el catálogo de Servicios, las Soluciones por rubro y el armador de Contacto.",
+    "Para ocultar algo sin borrarlo: cambiá \"activo\": true por \"activo\": false. Vale para un área entera, un servicio o un rubro.",
+    "Para agregar un servicio: copiá un bloque { ... } de la lista \"servicios\" de su área, pegalo al lado (separado por coma) y cambiale el \"id\" (único, sin espacios ni tildes) y los textos.",
+    "\"mensaje\" es opcional: es el nombre con el que el servicio aparece en el mensaje de WhatsApp. Si no está, se usa \"nombre\".",
+    "\"icono\" tiene que ser uno de los nombres que están en catalogo.js (lista ICONOS).",
+    "En los rubros, \"solucion\" es la lista de ids de servicios que se muestran como combinación. Si un servicio está inactivo, no aparece.",
+    "Ojo con las comas: el último elemento de cada lista va sin coma al final. Si la web deja de mostrar el catálogo, casi siempre es una coma de más o de menos."
+  ],
+
+  "areas": [
+    {
+      "id": "presencia",
+      "activo": true,
+      "nombre": "Presencia web",
+      "bajada": "Tu negocio, bien presentado en internet y fácil de encontrar desde el celular.",
+      "icono": "pantalla",
+      "nota": "¿Buscás una página web con precio cerrado?",
+      "nota_enlace": { "texto": "Mirá los planes", "href": "#planes" },
+      "servicios": [
+        {
+          "id": "web-profesional",
+          "activo": true,
+          "nombre": "Página web profesional",
+          "beneficio": "Que te encuentren, vean lo que hacés y te escriban directo desde el celular.",
+          "incluye": [
+            "Diseño propio para tu negocio, no una plantilla",
+            "Pensada primero para verse bien en el celular",
+            "Botón de WhatsApp siempre a mano",
+            "Textos escritos junto con vos"
+          ],
+          "icono": "celular"
+        },
+        {
+          "id": "landing",
+          "activo": true,
+          "nombre": "Landing page para campañas",
+          "beneficio": "Una página enfocada en una sola cosa: que quien llega desde un anuncio te consulte.",
+          "incluye": [
+            "Una sola oferta, sin distracciones",
+            "Botón directo a WhatsApp o formulario",
+            "Lista para usar con anuncios de Instagram, Facebook o Google",
+            "Medición de visitas y consultas"
+          ],
+          "icono": "megafono"
+        },
+        {
+          "id": "rediseno",
+          "activo": true,
+          "nombre": "Rediseño de tu web actual",
+          "beneficio": "Tu web vieja, lenta o que se ve mal en el celular, puesta al día.",
+          "incluye": [
+            "Revisión de lo que hoy no funciona",
+            "Diseño nuevo adaptado al celular",
+            "Carga más rápida",
+            "Mantenemos tu dominio y lo que ya está bien"
+          ],
+          "icono": "refrescar"
+        },
+        {
+          "id": "multi-idioma",
+          "activo": true,
+          "nombre": "Web en varios idiomas",
+          "beneficio": "Que el turista entienda lo que ofrecés y te consulte en su idioma.",
+          "incluye": [
+            "Español, inglés y los idiomas que necesites",
+            "Selector de idioma simple y visible",
+            "Cada idioma preparado para aparecer en Google",
+            "Ideal para bodegas, alojamientos y excursiones"
+          ],
+          "icono": "idiomas"
+        },
+        {
+          "id": "app-instalable",
+          "activo": true,
+          "nombre": "App instalable en el celular",
+          "beneficio": "Tus clientes te tienen en la pantalla del celular, sin bajar nada de una tienda de apps.",
+          "incluye": [
+            "Se instala desde el navegador con un toque",
+            "Ícono propio en la pantalla de inicio",
+            "Abre rápido, como una app",
+            "Sin pasar por Google Play ni App Store"
+          ],
+          "icono": "app"
+        }
+      ]
+    },
+
+    {
+      "id": "venta",
+      "activo": true,
+      "nombre": "Venta online",
+      "bajada": "Vendé y cobrá por internet, con Mercado Pago y pedidos que te llegan ordenados.",
+      "icono": "carrito",
+      "servicios": [
+        {
+          "id": "tienda-online",
+          "activo": true,
+          "nombre": "Tienda online",
+          "beneficio": "Vendé a cualquier hora y cobrá sin tener que estar atendiendo.",
+          "incluye": [
+            "Cobro con Mercado Pago",
+            "Envíos y retiro en el local",
+            "Productos con fotos, precios y categorías",
+            "Aviso de cada pedido nuevo"
+          ],
+          "icono": "bolsa"
+        },
+        {
+          "id": "catalogo-whatsapp",
+          "activo": true,
+          "nombre": "Catálogo con pedido por WhatsApp",
+          "beneficio": "El cliente arma su pedido solo y te llega listo al WhatsApp, sin idas y vueltas.",
+          "incluye": [
+            "Catálogo con fotos, precios y categorías",
+            "Carrito simple, sin que el cliente se registre",
+            "El pedido llega ordenado a tu WhatsApp",
+            "Fácil de actualizar"
+          ],
+          "icono": "catalogo"
+        },
+        {
+          "id": "menu-qr",
+          "activo": true,
+          "nombre": "Menú digital con QR",
+          "beneficio": "Tu carta siempre actualizada en el celular del cliente, sin reimprimir nada.",
+          "incluye": [
+            "QR para mesas, mostrador y vidriera",
+            "Cambiás platos y precios cuando quieras",
+            "Fotos y categorías",
+            "Se le puede sumar pedido por WhatsApp"
+          ],
+          "icono": "qr"
+        },
+        {
+          "id": "links-pago",
+          "activo": true,
+          "nombre": "Links y botones de pago",
+          "beneficio": "Cobrá señas, turnos o servicios por adelantado con Mercado Pago.",
+          "incluye": [
+            "Links de pago para mandar por chat",
+            "Botón de pago en tu web",
+            "Ideal para señas y reservas",
+            "Te ayudamos a configurar tu cuenta de Mercado Pago"
+          ],
+          "icono": "tarjeta"
+        },
+        {
+          "id": "cupones",
+          "activo": true,
+          "nombre": "Cupones y promociones",
+          "beneficio": "Motivá la primera compra y hacé volver a los que ya te compraron.",
+          "incluye": [
+            "Códigos de descuento",
+            "Promos por fecha o por producto",
+            "Envío gratis a partir de un monto",
+            "Se aplican solos en la tienda"
+          ],
+          "icono": "cupon"
+        }
+      ]
+    },
+
+    {
+      "id": "rindo",
+      "activo": true,
+      "nombre": "Gestión con Rindo",
+      "sello": "Sistema propio",
+      "bajada": "Rindo es nuestro sistema para comercios que no quieren saber nada con Excel: stock, ventas y números en un solo lugar.",
+      "icono": "panel",
+      "boton": "Pedí una demo",
+      "cierre_mensaje": "Quiero pedir una demo.",
+      "servicios": [
+        {
+          "id": "rindo-stock",
+          "activo": true,
+          "nombre": "Control de stock",
+          "mensaje": "Control de stock (Rindo)",
+          "beneficio": "Sabé qué tenés, qué te falta y qué reponer, sin contar a mano.",
+          "incluye": [
+            "Stock que se actualiza con cada venta y compra",
+            "Alertas cuando un producto se está por terminar",
+            "Desde el celular o la compu"
+          ],
+          "icono": "caja"
+        },
+        {
+          "id": "rindo-factura",
+          "activo": true,
+          "nombre": "Carga de mercadería con una foto",
+          "mensaje": "Carga de mercadería con foto (Rindo)",
+          "beneficio": "Le sacás una foto a la factura del proveedor y la mercadería se carga sola.",
+          "incluye": [
+            "Rindo lee productos, cantidades y costos de la foto",
+            "Vos revisás y confirmás antes de que impacte en el stock",
+            "Actualiza stock y costos de una",
+            "Queda registro de cada compra"
+          ],
+          "icono": "camara"
+        },
+        {
+          "id": "rindo-audio",
+          "activo": true,
+          "nombre": "Ventas y compras por audio o foto",
+          "mensaje": "Carga por audio o foto (Rindo)",
+          "beneficio": "Le contás a Rindo lo que vendiste o compraste, como si mandaras un audio.",
+          "incluye": [
+            "Cargás con un audio o una foto",
+            "Rindo arma el movimiento por vos",
+            "Lo revisás y confirmás antes de guardarlo",
+            "Pensado para cuando estás atendiendo"
+          ],
+          "icono": "microfono"
+        },
+        {
+          "id": "rindo-ventas",
+          "activo": true,
+          "nombre": "Registro de ventas y movimientos",
+          "mensaje": "Registro de ventas (Rindo)",
+          "beneficio": "Todo lo que entra y sale del negocio, anotado en un solo lugar.",
+          "incluye": [
+            "Ventas, compras y ajustes de stock",
+            "Historial por día y por producto",
+            "Sin planillas ni cuadernos"
+          ],
+          "icono": "lista"
+        },
+        {
+          "id": "rindo-panel",
+          "activo": true,
+          "nombre": "Panel de ventas y márgenes",
+          "mensaje": "Panel de ventas y márgenes (Rindo)",
+          "beneficio": "Mirá de un vistazo cuándo vendés más, qué se vende y cuánto te queda.",
+          "incluye": [
+            "Ventas por hora",
+            "Productos más vendidos",
+            "Márgenes por producto",
+            "Gráficos simples, sin tecnicismos"
+          ],
+          "icono": "grafico"
+        },
+        {
+          "id": "rindo-tienda",
+          "activo": true,
+          "nombre": "Stock conectado con la tienda online",
+          "mensaje": "Stock conectado con la tienda (Rindo)",
+          "beneficio": "Lo que vendés en el local y en la web descuenta del mismo stock.",
+          "incluye": [
+            "Un solo stock para el local y la tienda",
+            "La tienda muestra lo que realmente tenés",
+            "Se configura junto con tu tienda online"
+          ],
+          "icono": "sync"
+        }
+      ]
+    },
+
+    {
+      "id": "automatizacion",
+      "activo": true,
+      "nombre": "Automatización",
+      "bajada": "Que las tareas repetidas se hagan solas y vos tengas más tiempo para atender.",
+      "icono": "rayo",
+      "servicios": [
+        {
+          "id": "whatsapp-business",
+          "activo": true,
+          "nombre": "WhatsApp Business configurado",
+          "beneficio": "Respondé más rápido y mostrá tus productos sin escribir lo mismo cien veces.",
+          "incluye": [
+            "Mensaje de bienvenida y de ausencia",
+            "Respuestas rápidas para las preguntas de siempre",
+            "Catálogo de productos dentro de WhatsApp",
+            "Etiquetas para ordenar los chats"
+          ],
+          "icono": "chat"
+        },
+        {
+          "id": "turnos-reservas",
+          "activo": true,
+          "nombre": "Turnos y reservas online",
+          "beneficio": "Tus clientes reservan solos, a cualquier hora, y reciben un recordatorio.",
+          "incluye": [
+            "Agenda online con tus horarios",
+            "Recordatorio automático antes del turno",
+            "Opción de cobrar seña con Mercado Pago",
+            "Todas las reservas en un solo calendario"
+          ],
+          "icono": "calendario"
+        },
+        {
+          "id": "asistente-ia",
+          "activo": true,
+          "nombre": "Asistente con IA en tu web",
+          "beneficio": "Responde las consultas de siempre las 24 horas, aunque estés cerrado.",
+          "incluye": [
+            "Armado con la información de tu negocio",
+            "Contesta horarios, servicios, precios y formas de pago",
+            "Deriva a tu WhatsApp lo que necesita una persona",
+            "Revisamos y ajustamos sus respuestas"
+          ],
+          "icono": "chispa"
+        },
+        {
+          "id": "formularios",
+          "activo": true,
+          "nombre": "Formularios que llegan ordenados",
+          "beneficio": "Cada consulta te llega completa y ordenada al WhatsApp o al mail.",
+          "incluye": [
+            "Formularios a medida de tu negocio",
+            "Llegan a tu WhatsApp o a tu mail",
+            "Campos obligatorios para que no falte nada",
+            "Filtro contra spam"
+          ],
+          "icono": "formulario"
+        },
+        {
+          "id": "cotizador",
+          "activo": true,
+          "nombre": "Cotizador online",
+          "beneficio": "El cliente calcula solo un presupuesto estimado y te escribe con eso resuelto.",
+          "incluye": [
+            "Calcula según medidas, cantidades u opciones",
+            "Con los precios que vos definís",
+            "Manda el presupuesto armado por WhatsApp",
+            "Fácil de actualizar cuando cambian los precios"
+          ],
+          "icono": "calculadora"
+        },
+        {
+          "id": "google-sheets",
+          "activo": true,
+          "nombre": "Pedidos y formularios en Google Sheets",
+          "beneficio": "Todo lo que entra por la web se guarda solo en una planilla.",
+          "incluye": [
+            "Cada pedido o consulta, una fila nueva",
+            "Sin copiar y pegar",
+            "La podés compartir con tu equipo"
+          ],
+          "icono": "planilla"
+        }
+      ]
+    },
+
+    {
+      "id": "visibilidad",
+      "activo": true,
+      "nombre": "Visibilidad y crecimiento",
+      "bajada": "Que te encuentren en Google, que sepas de dónde llegan tus clientes y que vuelvan.",
+      "icono": "crecimiento",
+      "servicios": [
+        {
+          "id": "google-maps",
+          "activo": true,
+          "nombre": "Google Maps y Perfil de Empresa",
+          "beneficio": "Aparecé en el mapa con tus horarios, fotos, teléfono y cómo llegar.",
+          "incluye": [
+            "Alta o recuperación de tu perfil",
+            "Horarios, fotos, teléfono y WhatsApp",
+            "Categorías y descripción bien cargadas",
+            "Te explicamos cómo mantenerlo al día"
+          ],
+          "icono": "pin"
+        },
+        {
+          "id": "seo-local",
+          "activo": true,
+          "nombre": "Posicionamiento en Google (SEO local)",
+          "beneficio": "Trabajamos tu web para que Google la muestre cuando alguien de la zona busca lo que vendés.",
+          "incluye": [
+            "Revisión de cómo te busca la gente",
+            "Textos y títulos pensados para Google",
+            "Web rápida y bien armada por dentro",
+            "Alta en Google Search Console"
+          ],
+          "icono": "lupa"
+        },
+        {
+          "id": "metricas",
+          "activo": true,
+          "nombre": "Métricas: Google Analytics y Píxel de Meta",
+          "beneficio": "Sabé cuánta gente entra, de dónde viene y cuántos te consultan.",
+          "incluye": [
+            "Instalación de Google Analytics",
+            "Píxel de Meta para tus anuncios",
+            "Medición de clics a WhatsApp y formularios",
+            "Te explicamos cómo leer los números"
+          ],
+          "icono": "metricas"
+        },
+        {
+          "id": "anuncios-whatsapp",
+          "activo": true,
+          "nombre": "Anuncios que llevan al WhatsApp",
+          "beneficio": "Publicidad en Instagram y Facebook que termina en una conversación con vos.",
+          "incluye": [
+            "Armado de la campaña y los anuncios",
+            "Segmentación por zona",
+            "Mensaje de bienvenida preparado",
+            "La inversión en anuncios se paga aparte, directo a Meta"
+          ],
+          "icono": "megafono"
+        },
+        {
+          "id": "resenas",
+          "activo": true,
+          "nombre": "Reseñas en Google",
+          "beneficio": "Una forma simple de pedirles una reseña a tus clientes contentos.",
+          "incluye": [
+            "Link y QR directo para dejar la reseña",
+            "Mensaje listo para mandar por WhatsApp",
+            "Cartel o tarjeta para el mostrador",
+            "Guía para responder reseñas"
+          ],
+          "icono": "estrella"
+        },
+        {
+          "id": "email-marketing",
+          "activo": true,
+          "nombre": "Email marketing",
+          "beneficio": "Mandá novedades y promociones a tus clientes, sin depender del algoritmo de las redes.",
+          "incluye": [
+            "Orden de tu lista de contactos",
+            "Diseño de mails con tu marca",
+            "Envíos programados",
+            "Reporte de quién abrió y quién hizo clic"
+          ],
+          "icono": "sobre"
+        }
+      ]
+    },
+
+    {
+      "id": "soporte",
+      "activo": true,
+      "nombre": "Soporte y mantenimiento",
+      "bajada": "Lo técnico de fondo, resuelto. Vos te ocupás de tu negocio.",
+      "icono": "escudo",
+      "servicios": [
+        {
+          "id": "dominio-hosting",
+          "activo": true,
+          "nombre": "Dominio, hosting y seguridad",
+          "beneficio": "Tu web online, con tu nombre y el candado de sitio seguro.",
+          "incluye": [
+            "Dominio .com.ar",
+            "Hosting contratado y configurado",
+            "Certificado de seguridad (el candado)",
+            "Todo queda a tu nombre"
+          ],
+          "icono": "globo"
+        },
+        {
+          "id": "correo",
+          "activo": true,
+          "nombre": "Correo profesional",
+          "beneficio": "Escribí desde nombre@tunegocio.com.ar y dale más confianza a quien te lee.",
+          "incluye": [
+            "Casillas con el nombre de tu negocio",
+            "Configurado en tu celular y tu compu",
+            "Firma de mail con tu marca"
+          ],
+          "icono": "arroba"
+        },
+        {
+          "id": "mantenimiento",
+          "activo": true,
+          "nombre": "Mantenimiento mensual",
+          "beneficio": "Te olvidás de la web: nosotros la mantenemos al día.",
+          "incluye": [
+            "Cambios de textos, fotos y precios",
+            "Copias de seguridad",
+            "Actualizaciones",
+            "Revisión de que todo ande"
+          ],
+          "icono": "herramienta"
+        }
+      ]
+    }
+  ],
+
+  "rubros": [
+    {
+      "id": "comercios",
+      "activo": true,
+      "nombre": "Comercios y locales",
+      "ejemplos": "Almacenes, ferreterías, tiendas de ropa, librerías",
+      "icono": "local",
+      "problema": "Vendés bien en el mostrador, pero el stock lo llevás de memoria o en un cuaderno, y por internet casi no te encuentran.",
+      "solucion": ["web-profesional", "catalogo-whatsapp", "rindo-stock", "google-maps"]
+    },
+    {
+      "id": "gastronomia",
+      "activo": true,
+      "nombre": "Gastronomía",
+      "ejemplos": "Restaurantes, bares, cafeterías, rotiserías",
+      "icono": "taza",
+      "problema": "La carta impresa queda vieja con cada aumento, los pedidos se pierden entre chats y las reservas se anotan en un papel.",
+      "solucion": ["menu-qr", "catalogo-whatsapp", "turnos-reservas", "resenas"]
+    },
+    {
+      "id": "salud-estetica",
+      "activo": true,
+      "nombre": "Salud, estética y barberías",
+      "ejemplos": "Consultorios, centros de estética, peluquerías, barberías",
+      "icono": "tijera",
+      "problema": "Pasás el día contestando mensajes para dar turnos, y cuando alguien falta sin avisar perdés ese horario.",
+      "solucion": ["web-profesional", "turnos-reservas", "links-pago", "resenas"]
+    },
+    {
+      "id": "profesionales",
+      "activo": true,
+      "nombre": "Profesionales y estudios",
+      "ejemplos": "Abogados, contadores, arquitectos, consultoras",
+      "icono": "maletin",
+      "problema": "Te llegan por recomendación, pero cuando te buscan en internet no encuentran nada serio, y seguís usando un mail personal.",
+      "solucion": ["web-profesional", "formularios", "correo"]
+    },
+    {
+      "id": "turismo",
+      "activo": true,
+      "nombre": "Turismo",
+      "ejemplos": "Bodegas, cabañas, hospedajes, excursiones",
+      "icono": "montana",
+      "problema": "Te buscan turistas de otras provincias y países, pero tu web está solo en español o no aparecés en el mapa.",
+      "solucion": ["multi-idioma", "turnos-reservas", "google-maps"]
+    },
+    {
+      "id": "emprendedores",
+      "activo": true,
+      "nombre": "Emprendedores online",
+      "ejemplos": "Marcas que venden por Instagram y hacen envíos",
+      "icono": "avion",
+      "problema": "Vendés por Instagram contestando uno por uno, el stock no te cierra y no sabés qué publicidad te trae ventas.",
+      "solucion": ["tienda-online", "rindo-tienda", "metricas", "anuncios-whatsapp"]
+    }
+  ]
+}

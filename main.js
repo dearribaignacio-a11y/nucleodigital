@@ -14,7 +14,23 @@
   // mensaje y lo abre en WhatsApp: nunca se pierde una consulta.
   const ENDPOINT_FORMULARIO = '';
 
+  // Número de WhatsApp: sin +, sin espacios y sin guiones. Todos los botones
+  // de la web arman su link con este número (ver ND.wa más abajo). En el HTML
+  // queda una copia en cada botón solo como respaldo si el JS no carga.
   const WHATSAPP = '5492646071925';
+
+  // Links viejos de cuando la web era una sola página (ej. nucleodigital.ar/#portfolio).
+  const ANCLAS_VIEJAS = {
+    '#portfolio': 'soluciones.html',
+    '#trabajos': 'soluciones.html',
+    '#nosotros': 'contacto.html',
+    '#servicios': 'servicios.html',
+    '#contacto': 'contacto.html',
+  };
+  if (document.body && document.body.dataset.pagina === 'inicio' && ANCLAS_VIEJAS[location.hash]) {
+    location.replace(ANCLAS_VIEJAS[location.hash]);
+    return;
+  }
 
   /* ------------------------------------------------------------- utilidades */
 
@@ -30,6 +46,12 @@
   const hayGsap = Boolean(gsap && ScrollTrigger);
 
   if (hayGsap) gsap.registerPlugin(ScrollTrigger);
+
+  /** Link de WhatsApp con el mensaje ya escrito. */
+  const wa = (texto) => `https://wa.me/${WHATSAPP}${texto ? `?text=${encodeURIComponent(texto)}` : ''}`;
+
+  // Lo comparte con catalogo.js, que se carga después.
+  const ND = (window.ND = { whatsapp: WHATSAPP, wa, irA: (d) => irA(d), catalogo: null });
 
   /* ------------------------------------------------ scroll suave con Lenis */
 
@@ -102,32 +124,30 @@
       if (lenis) lenis.stop();
     });
 
-    // Todos los enlaces internos pasan por Lenis.
-    $$('a[href^="#"]').forEach((a) => {
-      a.addEventListener('click', (ev) => {
-        const destino = a.getAttribute('href');
-        if (destino === '#' || !$(destino)) return;
-        ev.preventDefault();
-        if (!menu.hidden) cerrarMenu();
-        irA(destino);
-      });
+    // Todos los enlaces internos pasan por Lenis. Va por delegación porque
+    // parte del contenido (el catálogo) se arma después de cargar.
+    document.addEventListener('click', (ev) => {
+      const a = ev.target.closest('a[href^="#"]');
+      if (!a) return;
+      const destino = a.getAttribute('href');
+      if (destino === '#' || !$(destino)) return;
+      ev.preventDefault();
+      if (!menu.hidden) cerrarMenu();
+      irA(destino);
     });
 
     document.addEventListener('keydown', (ev) => {
-      if (ev.key === 'Escape' && !menu.hidden) cerrarMenu();
+      if (ev.key === 'Escape' && !menu.hidden) {
+        cerrarMenu();
+        boton.focus();
+      }
     });
+  }
 
-    // Marca en el menú la sección que se está mirando.
-    if (!hayGsap) return;
-    $$('main section[id]').forEach((seccion) => {
-      const enlace = $(`.cabecera__nav a[href="#${seccion.id}"]`);
-      if (!enlace) return;
-      ScrollTrigger.create({
-        trigger: seccion,
-        start: 'top 55%',
-        end: 'bottom 55%',
-        onToggle: (self) => enlace.classList.toggle('activa', self.isActive),
-      });
+  /** Todos los botones de WhatsApp fijos del HTML usan el número de arriba. */
+  function iniciarWhatsApp() {
+    $$('a[data-wa]').forEach((a) => {
+      a.href = wa(a.dataset.wa);
     });
   }
 
@@ -159,7 +179,7 @@
 
   function iniciarReveals() {
     if (!hayGsap || menosMovimiento) {
-      $$('.revelar, .revelar-c').forEach((el) => (el.style.opacity = 1));
+      revelar(document);
       return;
     }
 
@@ -191,8 +211,36 @@
       startAt: { y: 24 },
     });
 
+    revelar(document);
+
+    // Celdas del bento: la del plan destacado entra un toque después.
+    if (document.querySelector('.bento')) {
+      gsap.from('.bento__celda', {
+        opacity: 0,
+        y: 40,
+        duration: 0.85,
+        ease: 'power3.out',
+        stagger: 0.07,
+        scrollTrigger: { trigger: '.bento', start: 'top 80%' },
+      });
+    }
+  }
+
+  /** Reveals al scroll dentro de un contenedor. Se usa al cargar y cada vez
+      que catalogo.js agrega contenido. */
+  function revelar(ctx) {
+    const dentro = (sel) => [
+      ...(ctx !== document && ctx.matches(sel) ? [ctx] : []),
+      ...$$(sel, ctx),
+    ].filter((el) => !el.dataset.revelado && (el.dataset.revelado = '1'));
+
+    if (!hayGsap || menosMovimiento) {
+      dentro('.revelar, .revelar-c').forEach((el) => (el.style.opacity = 1));
+      return;
+    }
+
     // Títulos de sección, palabra por palabra.
-    $$('.revelar-t').forEach((titulo) => {
+    dentro('.revelar-t').forEach((titulo) => {
       partirEnPalabras(titulo);
       gsap.to(titulo.querySelectorAll('.palabra'), {
         opacity: 1,
@@ -206,7 +254,7 @@
     });
 
     // Bloques sueltos fuera del hero.
-    $$('.revelar').forEach((el) => {
+    dentro('.revelar').forEach((el) => {
       if (el.closest('.hero')) return;
       gsap.to(el, {
         opacity: 1,
@@ -219,7 +267,7 @@
     });
 
     // Tarjetas: entran en cascada dentro de su grilla.
-    $$('.revelar-c').forEach((el, i) => {
+    dentro('.revelar-c').forEach((el, i) => {
       gsap.to(el, {
         opacity: 1,
         y: 0,
@@ -228,56 +276,6 @@
         delay: (i % 2) * 0.08,
         startAt: { y: 34 },
         scrollTrigger: { trigger: el, start: 'top 88%' },
-      });
-    });
-
-    // Celdas del bento: la del plan destacado entra un toque después.
-    gsap.from('.bento__celda', {
-      opacity: 0,
-      y: 40,
-      duration: 0.85,
-      ease: 'power3.out',
-      stagger: 0.07,
-      scrollTrigger: { trigger: '.bento', start: 'top 80%' },
-    });
-
-    // Parallax suave de las capturas dentro de su marco.
-    if (!esCelular) {
-      $$('.trabajo__marco img').forEach((img) => {
-        gsap.fromTo(
-          img,
-          { yPercent: -4 },
-          {
-            yPercent: 4,
-            ease: 'none',
-            scrollTrigger: { trigger: img.closest('.trabajo__marco'), scrub: true },
-          }
-        );
-      });
-    }
-  }
-
-  /* ------------------------------------------------------------ contadores */
-
-  function iniciarContadores() {
-    const formateador = new Intl.NumberFormat('es-AR');
-
-    $$('[data-contador]').forEach((el) => {
-      const hasta = Number(el.dataset.hasta);
-      const crudo = el.dataset.formato === 'crudo';
-      const pintar = (v) => {
-        el.textContent = crudo ? String(Math.round(v)) : formateador.format(Math.round(v));
-      };
-
-      if (!hayGsap || menosMovimiento) return pintar(hasta);
-
-      const estado = { valor: 0 };
-      gsap.to(estado, {
-        valor: hasta,
-        duration: 1.8,
-        ease: 'power2.out',
-        onUpdate: () => pintar(estado.valor),
-        scrollTrigger: { trigger: el, start: 'top 92%', once: true },
       });
     });
   }
@@ -310,22 +308,28 @@
     });
 
     // Al pasar por algo interactivo el anillo crece y muestra su etiqueta.
-    $$('a, button, [data-cursor]').forEach((el) => {
-      el.addEventListener('pointerenter', () => {
-        cursor.classList.add('activo');
-        anillo.dataset.texto = el.dataset.cursor || '';
-      });
-      el.addEventListener('pointerleave', () => {
-        cursor.classList.remove('activo');
-        anillo.dataset.texto = '';
-      });
+    // Por delegación: también toma los botones que arma catalogo.js.
+    const interactivo = 'a, button, label, [data-cursor]';
+    document.addEventListener('pointerover', (ev) => {
+      const el = ev.target.closest(interactivo);
+      if (!el) return;
+      cursor.classList.add('activo');
+      anillo.dataset.texto = el.dataset.cursor || '';
+    });
+    document.addEventListener('pointerout', (ev) => {
+      const el = ev.target.closest(interactivo);
+      if (!el || (ev.relatedTarget && el.contains(ev.relatedTarget))) return;
+      cursor.classList.remove('activo');
+      anillo.dataset.texto = '';
     });
   }
 
-  function iniciarImanes() {
+  function iniciarImanes(ctx = document) {
     if (!punteroFino || menosMovimiento || !hayGsap) return;
 
-    $$('.iman').forEach((el) => {
+    $$('.iman', ctx).forEach((el) => {
+      if (el.dataset.iman) return;
+      el.dataset.iman = '1';
       const fuerza = 0.32;
       const aX = gsap.quickTo(el, 'x', { duration: 0.5, ease: 'power3' });
       const aY = gsap.quickTo(el, 'y', { duration: 0.5, ease: 'power3' });
@@ -390,9 +394,9 @@
           `Nombre: ${datos.nombre}\n` +
           (datos.negocio ? `Negocio: ${datos.negocio}\n` : '') +
           `Contacto: ${datos.contacto}\n` +
-          `Plan: ${datos.plan}\n` +
+          `Le interesa: ${datos.plan}\n` +
           (datos.mensaje ? `\n${datos.mensaje}` : '');
-        window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+        window.open(wa(texto), '_blank', 'noopener');
         aviso.className = 'formulario__aviso ok';
         aviso.textContent = 'Te abrimos WhatsApp con el mensaje listo. Dale enviar y listo.';
         boton.disabled = false;
@@ -426,7 +430,7 @@
   function iniciarEscena() {
     // En celular no se carga Three.js: son cientos de KB para un adorno.
     // El hero ya tiene su degradado de CSS, que es lo que se ve ahí.
-    if (esCelular || menosMovimiento) return;
+    if (!$('#escena') || esCelular || menosMovimiento) return;
     if (navigator.connection && navigator.connection.saveData) return;
 
     // Después del primer pintado, para no competir con el texto ni con el LCP.
@@ -445,17 +449,29 @@
   function iniciar() {
     $('#anio').textContent = new Date().getFullYear();
 
+    iniciarWhatsApp();
     iniciarLenis();
     iniciarNavegacion();
     iniciarReveals();
-    iniciarContadores();
     iniciarCursor();
     iniciarImanes();
     iniciarFormulario();
     iniciarEscena();
 
-    // Las capturas entran con lazy: al cargarse cambian la altura y hay que
-    // recalcular los disparadores.
+    // El catálogo llega después (lee servicios.json): cuando está, le
+    // aplicamos las mismas animaciones y recalculamos los disparadores.
+    if (ND.catalogo) {
+      ND.catalogo.then((nuevos) => {
+        nuevos.forEach((el) => {
+          revelar(el);
+          iniciarImanes(el);
+        });
+        if (hayGsap) ScrollTrigger.refresh();
+        // Si se llegó con un ancla a algo que armó el catálogo, ahora existe.
+        if (location.hash && location.hash.length > 1 && $(location.hash)) irA(location.hash);
+      });
+    }
+
     if (hayGsap) {
       window.addEventListener('load', () => ScrollTrigger.refresh());
     }

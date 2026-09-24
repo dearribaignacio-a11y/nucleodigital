@@ -1,7 +1,12 @@
 # Núcleo Digital — sitio web
 
-Landing de una sola página. HTML, CSS y JavaScript sin frameworks: se sube tal
-cual a Hostinger y anda. No hay que compilar nada.
+Sitio de cuatro páginas: Inicio (`index.html`), Servicios (`servicios.html`),
+Soluciones (`soluciones.html`) y Contacto (`contacto.html`). HTML, CSS y
+JavaScript sin frameworks: se sube tal cual a Hostinger y anda. No hay que
+compilar nada.
+
+Todos los servicios y rubros salen de **un solo archivo: `servicios.json`**
+(ver sección 3).
 
 ---
 
@@ -16,8 +21,10 @@ cual a Hostinger y anda. No hay que compilar nada.
 Lo que sí va:
 
 ```
-index.html   styles.css   main.js   escena.js   .htaccess
-assets/      lib/
+index.html  servicios.html  soluciones.html  contacto.html
+styles.css  main.js  catalogo.js  escena.js  servicios.json
+.htaccess   sitemap.xml  robots.txt
+assets/     lib/
 ```
 
 > El archivo `.htaccess` es el que activa la compresión y el caché. Empieza con
@@ -54,43 +61,54 @@ https://developers.facebook.com/tools/debug/
 
 Todo lo que sigue está en un solo lugar, no hay que buscar por todo el código.
 
+### Servicios y rubros: `servicios.json`
+
+Es el único archivo que hay que tocar para cambiar el catálogo. De ahí salen
+las tarjetas del Inicio, las pestañas de Servicios, las Soluciones por rubro y
+el armador de Contacto. Se abre con cualquier editor de texto (incluso el
+Administrador de archivos de Hostinger).
+
+**Ocultar** un servicio, un área o un rubro: cambiá `"activo": true` por
+`"activo": false`. Si ocultás un servicio que forma parte de un rubro,
+desaparece también de ese rubro.
+
+**Editar**: cambiá el texto entre comillas de `nombre`, `beneficio` o de los
+puntos de `incluye`. `mensaje` (opcional) es cómo aparece el servicio en el
+WhatsApp que se abre; si no está, se usa `nombre`.
+
+**Agregar**: copiá un bloque `{ ... }` completo de un servicio, pegalo dentro
+de la lista `servicios` del área que quieras, ponele un `id` nuevo (sin
+espacios ni tildes, ej. `"tienda-mayorista"`) y cambiá los textos. El `icono`
+tiene que ser uno de los nombres de la lista `ICONOS` de `catalogo.js`.
+
+> Cuidado con las comas: entre bloques va coma, después del último no. Si
+> después de editar el catálogo no aparece, pegá el contenido en
+> https://jsonlint.com y te marca la línea con el error.
+
 ### El número de WhatsApp
 
-Aparece en dos lados:
-
-- `main.js`, arriba de todo: la constante `WHATSAPP`.
-- `index.html`: buscá `wa.me/` y reemplazá en todos los enlaces.
+- `main.js`, arriba de todo: la constante `WHATSAPP`. Todos los botones de la
+  web arman su link con este número.
+- En los `.html` hay una copia en cada botón como respaldo (por si el JS no
+  carga). Buscá `5492646071925` y reemplazalo en los cuatro archivos.
 
 Va sin `+`, sin espacios y sin guiones: `5492646071925`.
 
 ### Los precios y qué incluye cada plan
 
-En `index.html`, sección `<!-- SERVICIOS -->`. Cada plan es un bloque
-`<article class="plan">`. El precio está en `<p class="plan__precio">` y los
-puntos en la lista `<ul class="plan__lista">`.
+En `servicios.html`, sección `<!-- Planes de página web`. Cada plan es un
+bloque `<article class="plan">`. El precio está en `<p class="plan__precio">`
+y los puntos en la lista `<ul class="plan__lista">`.
 
-### Los contadores del inicio
+### Preguntas frecuentes y "Cómo trabajamos"
 
-En `index.html`, buscá `data-hasta`. El número que pongas ahí es hasta dónde
-cuenta la animación.
+En `index.html`, secciones `PREGUNTAS FRECUENTES` y `CÓMO TRABAJAMOS`. Cada
+pregunta es un bloque `<details class="pregunta">`.
 
-### Un proyecto del portfolio
+### El dominio
 
-Cada uno es un `<article class="trabajo">`. Para agregarle el link al sitio en
-vivo a uno que hoy no lo tiene, cambiá:
-
-```html
-<div class="trabajo__marco trabajo__marco--quieto">
-```
-
-por:
-
-```html
-<a class="trabajo__marco" href="https://EL-SITIO.com" target="_blank" rel="noopener" data-cursor="Visitar">
-```
-
-y antes de cerrar, agregá `<span class="trabajo__ir">Ver el sitio</span>` y
-cerrá con `</a>` en lugar de `</div>`.
+Si cambia, reemplazalo en el `<head>` de las cuatro páginas (canonical, `og:`
+y datos del negocio), en `sitemap.xml` y en `robots.txt`.
 
 ### Los colores
 
@@ -124,15 +142,6 @@ node tools/serve.js
 ```
 
 Y abrís http://localhost:4321
-
-### Regenerar las capturas del portfolio
-
-```bash
-node tools/capturar.js
-```
-
-Levanta Chrome en segundo plano, entra a cada proyecto y saca la captura.
-Los proyectos y sus rutas están listados arriba de todo en `tools/capturar.js`.
 
 ### Regenerar la imagen de WhatsApp
 
@@ -170,49 +179,18 @@ su sistema.
 **Las tipografías** están en `assets/fonts/`, no se piden a Google. Eso ahorra
 una conexión a otro servidor y hace que el texto aparezca antes.
 
-**Peso.** Un celular descarga alrededor de **160 KB** para ver la primera
-pantalla. Las capturas del portfolio se cargan recién cuando el visitante llega
-a esa altura.
+**Peso.** No hay fotos: los íconos son SVG dibujados en `catalogo.js` y la
+maqueta de Rindo está hecha con HTML y CSS.
+
+**Links viejos.** `.htaccess` redirige `/portfolio`, `/trabajos` y
+`/demo-panel.html` a Soluciones, y `main.js` manda los links viejos con ancla
+(`/#portfolio`, `/#servicios`, `/#contacto`) a la página nueva que corresponde.
 
 ---
 
-## 7. La demo del panel de stock
+## 7. La maqueta de Rindo
 
-Está en `demo-panel.html` (con `demo-panel.css` y `demo-panel.js`). Es la página
-que le mostrás al cliente en una reunión para que entienda qué es un panel de
-administración.
-
-**Cómo usarla en una reunión:**
-
-1. Abrí `https://nucleodigital.art/demo-panel.html`.
-2. Arrancá en **Vista pública**: "esto es lo que ve tu cliente".
-3. Pasá a **Vista de administración**, entrá con `admin` / `demo1234`.
-4. Cambiale el stock a un producto y ponelo en 0.
-5. Volvé a **Vista pública**: el producto ahora dice "Sin stock".
-
-Ese ida y vuelta es el momento en que se entiende de qué se trata.
-
-**Restablecer demo** (botón arriba a la derecha) devuelve los 5 productos
-originales. Usalo al terminar cada reunión para dejarla lista para la próxima.
-
-**Dónde se guardan los datos.** En el `localStorage` del navegador de quien la
-abre. No hay base de datos ni servidor: si el cliente la abre en su celular,
-ve los productos originales y lo que toque queda solo en su teléfono. Es una
-maqueta, no un sistema.
-
-**Las imágenes.** Los productos de ejemplo no traen foto: se muestra la inicial
-del nombre sobre un fondo. Si cargás un link de imagen en el formulario, se usa
-esa; si el link falla, vuelve a la inicial. Así nunca aparece una imagen rota
-delante de un cliente.
-
-**Cambiar los productos de ejemplo.** En `demo-panel.js`, arriba de todo, está
-la lista `PRODUCTOS_INICIALES`. Si vas a una reunión con una ferretería, poné
-ahí cinco productos de ferretería y la demo pega mucho más.
-
-**Usuario y contraseña.** También arriba de `demo-panel.js`, en `USUARIO` y
-`CONTRASENA`. Están a la vista en la pantalla de ingreso a propósito. No
-protegen nada: es una demostración del flujo, no seguridad real.
-
-**No está enlazada desde el sitio.** Se llega solo por la dirección directa. Si
-querés que aparezca en el menú, agregá un enlace a `demo-panel.html` en el
-`<nav>` de `index.html`.
+El panel que se ve en Inicio y en la pestaña Rindo de Servicios es una maqueta
+hecha con HTML y CSS (función `maquetaRindo` en `catalogo.js`). Los números son
+de ejemplo y la maqueta lo aclara abajo. Si tenés capturas reales de Rindo,
+se puede reemplazar por una imagen.

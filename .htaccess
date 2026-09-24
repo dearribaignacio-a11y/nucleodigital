@@ -24,6 +24,8 @@
 
   # El HTML nunca se cachea: es lo que permite que un cambio se vea al toque.
   ExpiresByType text/html "access plus 0 seconds"
+  # servicios.json tampoco: así un servicio que ocultás desaparece al toque.
+  ExpiresByType application/json "access plus 0 seconds"
 
   # Fuentes e imágenes: un año. Si alguna cambia, se le cambia el nombre.
   ExpiresByType font/woff2 "access plus 1 year"
@@ -69,4 +71,12 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^tools/ - [F,L]
+
+  # Páginas que ya no existen: se mandan a Soluciones para que nadie vea un 404.
+  # (El portfolio y la demo del panel se reemplazaron por Soluciones y Rindo.)
+  RewriteRule ^(portfolio|trabajos)(\.html|/)?$ /soluciones.html [R=301,L,NC]
+  RewriteRule ^demo-panel\.html$ /soluciones.html [R=301,L,NC]
+
+  # Direcciones cortas: /servicios abre servicios.html, etc.
+  RewriteRule ^(servicios|soluciones|contacto)/?$ /$1.html [R=301,L,NC]
 </IfModule>
