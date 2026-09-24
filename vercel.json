@@ -1,0 +1,33 @@
+{
+  "redirects": [
+    { "source": "/portfolio", "destination": "/soluciones.html", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/soluciones.html", "permanent": true },
+    { "source": "/trabajos", "destination": "/soluciones.html", "permanent": true },
+    { "source": "/demo-panel.html", "destination": "/soluciones.html", "permanent": true },
+    { "source": "/servicios", "destination": "/servicios.html", "permanent": true },
+    { "source": "/soluciones", "destination": "/soluciones.html", "permanent": true },
+    { "source": "/contacto", "destination": "/contacto.html", "permanent": true },
+    { "source": "/tools/:ruta*", "destination": "/", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.html",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache, must-revalidate" }]
+    },
+    {
+      "source": "/servicios.json",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache, must-revalidate" }]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

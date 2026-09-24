@@ -3,27 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Núcleo Digital — Diseño y desarrollo web en San Juan y Mendoza</title>
-<meta name="description" content="Hacemos la web de tu negocio a medida: diseño propio, carga rápida y WhatsApp integrado. Pago único, sin cuotas. San Juan y Mendoza.">
+<title>Núcleo Digital — Webs, tiendas online y sistemas para pymes de San Juan y Mendoza</title>
+<meta name="description" content="Páginas web, tiendas online, control de stock con Rindo y automatizaciones para pymes de San Juan y Mendoza. Consultanos por WhatsApp.">
 <meta name="theme-color" content="#101014">
+<link rel="canonical" href="https://nucleodigital.ar/">
 
 <!-- Open Graph: define como se ve el link cuando se manda por WhatsApp.
      La imagen debe ser absoluta y estar publicada para que WhatsApp la levante. -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Núcleo Digital">
-<meta property="og:url" content="https://nucleodigital.art/">
-<meta property="og:title" content="Núcleo Digital — La web que tu negocio ya se ganó">
-<meta property="og:description" content="Diseño y desarrollo web a medida para pymes de San Juan y Mendoza. Pago único, sin cuotas mensuales. Mirá los trabajos.">
-<meta property="og:image" content="https://nucleodigital.art/assets/img/og.jpg">
+<meta property="og:url" content="https://nucleodigital.ar/">
+<meta property="og:title" content="Núcleo Digital — Tu negocio se vea, venda y se ordene online">
+<meta property="og:description" content="Páginas web, tiendas online, control de stock y automatizaciones para pymes de San Juan y Mendoza.">
+<meta property="og:image" content="https://nucleodigital.ar/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="Núcleo Digital — estudio de diseño y desarrollo web">
+<meta property="og:image:alt" content="Núcleo Digital — soluciones digitales para pymes">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Núcleo Digital — La web que tu negocio ya se ganó">
-<meta name="twitter:description" content="Diseño y desarrollo web a medida para pymes de San Juan y Mendoza. Pago único, sin cuotas mensuales.">
-<meta name="twitter:image" content="https://nucleodigital.art/assets/img/og.jpg">
+<meta name="twitter:title" content="Núcleo Digital — Tu negocio se vea, venda y se ordene online">
+<meta name="twitter:description" content="Páginas web, tiendas online, control de stock y automatizaciones para pymes de San Juan y Mendoza.">
+<meta name="twitter:image" content="https://nucleodigital.ar/assets/img/og.jpg">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -33,13 +34,69 @@
 <link rel="preload" href="assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 
+<!-- Datos del negocio para Google (ficha local). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://nucleodigital.ar/#negocio",
+  "name": "Núcleo Digital",
+  "description": "Páginas web, tiendas online, control de stock y automatizaciones para pymes de San Juan y Mendoza.",
+  "url": "https://nucleodigital.ar/",
+  "logo": "https://nucleodigital.ar/assets/img/logo.svg",
+  "image": "https://nucleodigital.ar/assets/img/og.jpg",
+  "telephone": "+54 9 264 607-1925",
+  "email": "dearribaignacio@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Juan",
+    "addressRegion": "San Juan",
+    "addressCountry": "AR"
+  },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "San Juan"
+    },
+    {
+      "@type": "State",
+      "name": "Mendoza"
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  ],
+  "knowsAbout": [
+    "Diseño web",
+    "Tiendas online",
+    "Mercado Pago",
+    "Control de stock",
+    "Automatización",
+    "SEO local",
+    "Google Maps"
+  ]
+}
+</script>
+
 <!-- Marca que hay JS antes del primer pintado. Sin esto, los bloques que van
      a animarse aparecen visibles un instante y despues se esconden. Si el JS
      esta desactivado, la clase nunca se agrega y todo se ve igual, quieto. -->
 <script>document.documentElement.classList.add('js');</script>
 </head>
 
-<body>
+<body data-pagina="inicio">
 
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
@@ -48,19 +105,18 @@
 
 <!-- ======================= ENCABEZADO ======================= -->
 <header class="cabecera" id="cabecera">
-  <a class="cabecera__logo" href="#inicio" aria-label="Núcleo Digital — ir al inicio">
-    <img src="assets/img/logo.webp" alt="Núcleo Digital" width="200" height="60" fetchpriority="high">
+  <a class="cabecera__logo" href="index.html" aria-label="Núcleo Digital — ir al inicio">
+    <img src="assets/img/logo.svg" alt="Núcleo Digital" width="200" height="60" fetchpriority="high">
   </a>
 
-  <nav class="cabecera__nav" aria-label="Secciones">
-    <a href="#servicios">Servicios</a>
-    <a href="#portfolio">Trabajos</a>
-    <a href="demo-panel.html">Demo</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#contacto">Contacto</a>
+  <nav class="cabecera__nav" aria-label="Principal">
+    <a href="index.html" aria-current="page">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="soluciones.html">Soluciones</a>
+    <a href="contacto.html">Contacto</a>
   </nav>
 
-  <a class="boton boton--chico iman" href="#contacto" data-cursor="Escribir">Hablemos</a>
+  <a class="boton boton--chico iman" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." data-wa="Hola Núcleo Digital, vi la web y quiero consultarles." target="_blank" rel="noopener" data-cursor="WhatsApp">Hablemos</a>
 
   <button class="cabecera__menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
     <span></span><span></span>
@@ -69,14 +125,13 @@
 
 <!-- Menú de celular -->
 <div class="menu-movil" id="menu-movil" hidden>
-  <nav aria-label="Secciones">
-    <a href="#servicios"><span>01</span> Servicios</a>
-    <a href="#portfolio"><span>02</span> Trabajos</a>
-    <a href="demo-panel.html"><span>03</span> Demo del panel</a>
-    <a href="#nosotros"><span>04</span> Nosotros</a>
-    <a href="#contacto"><span>05</span> Contacto</a>
+  <nav aria-label="Principal">
+    <a href="index.html" aria-current="page"><span>01</span> Inicio</a>
+    <a href="servicios.html"><span>02</span> Servicios</a>
+    <a href="soluciones.html"><span>03</span> Soluciones</a>
+    <a href="contacto.html"><span>04</span> Contacto</a>
   </nav>
-  <a class="boton boton--wa" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+  <a class="boton boton--wa" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." data-wa="Hola Núcleo Digital, vi la web y quiero consultarles." target="_blank" rel="noopener">Escribinos por WhatsApp</a>
 </div>
 
 <main id="contenido">
@@ -91,373 +146,165 @@
   <div class="hero__cuerpo">
     <p class="etiqueta revelar">
       <span class="etiqueta__punto"></span>
-      Estudio de diseño y desarrollo web · San Juan, Argentina
+      Soluciones digitales para pymes · San Juan, Argentina
     </p>
 
     <h1 class="hero__titulo">
-      <span class="linea">Hacemos la web</span>
-      <span class="linea">que tu negocio</span>
-      <span class="linea"><em>ya se ganó.</em></span>
+      <span class="linea">Hacemos que</span>
+      <span class="linea">tu negocio se vea,</span>
+      <span class="linea"><em>venda y se ordene.</em></span>
     </h1>
 
     <p class="hero__bajada revelar">
-      Diseño y desarrollo a medida para pymes de San Juan y Mendoza.
-      Sin plantillas y sin cuotas mensuales: pagás una vez y el sitio es tuyo.
+      Páginas web, tiendas online, control de stock y automatizaciones para pymes
+      de San Juan y Mendoza. Todo en un solo lugar, y lo hablamos por WhatsApp.
     </p>
 
     <div class="hero__acciones revelar">
-      <a class="boton boton--wa iman" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." target="_blank" rel="noopener" data-cursor="WhatsApp">
+      <a class="boton boton--wa iman" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." data-wa="Hola Núcleo Digital, vi la web y quiero consultarles." target="_blank" rel="noopener" data-cursor="WhatsApp">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.81.83-3.02-.2-.31a8.16 8.16 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
         Escribinos por WhatsApp
       </a>
-      <a class="boton boton--fantasma iman" href="#portfolio" data-cursor="Mirar">Ver trabajos</a>
+      <a class="boton boton--fantasma iman" href="servicios.html" data-cursor="Ver">Ver servicios</a>
     </div>
-
-    <!-- Contadores. data-hasta es el valor final; el conteo lo arranca ScrollTrigger. -->
-    <dl class="cifras revelar">
-      <div class="cifra">
-        <dt class="cifra__valor"><span data-contador data-hasta="10">0</span><span class="cifra__mas">+</span></dt>
-        <dd class="cifra__rotulo">Proyectos hechos</dd>
-      </div>
-      <div class="cifra">
-        <dt class="cifra__valor"><span data-contador data-hasta="2025" data-formato="crudo">0</span></dt>
-        <dd class="cifra__rotulo">Trabajando desde</dd>
-      </div>
-      <div class="cifra">
-        <dt class="cifra__valor"><span data-contador data-hasta="2">0</span></dt>
-        <dd class="cifra__rotulo">Provincias</dd>
-      </div>
-    </dl>
   </div>
 
   <div class="hero__bajar" aria-hidden="true"><span></span></div>
 </section>
 
-<!-- ======================= SERVICIOS ======================= -->
-<section class="seccion" id="servicios">
+<!-- ======================= ÁREAS ======================= -->
+<section class="seccion" id="areas">
   <div class="seccion__cabecera">
-    <p class="etiqueta revelar"><span class="etiqueta__num">01</span> Planes</p>
-    <h2 class="titulo revelar-t">Tres formas de arrancar. <em>Un solo pago.</em></h2>
+    <p class="etiqueta revelar"><span class="etiqueta__num">01</span> Qué hacemos</p>
+    <h2 class="titulo revelar-t">Lo que hacemos. <em>En un solo lugar.</em></h2>
     <p class="seccion__bajada revelar">
-      Sin abono mensual ni letra chica. Elegís el plan, lo hacemos, te lo entregamos
-      publicado y andando. Si no sabés cuál te sirve, escribinos y lo vemos juntos.
+      Podés empezar por lo que más te urge y sumar el resto cuando lo necesites.
+      Tocá un área para ver todo lo que incluye.
     </p>
   </div>
 
-  <!-- Bento: la celda del plan PyME ocupa el doble y lleva el acento ámbar. -->
-  <div class="bento">
+  <!-- Las tarjetas salen de servicios.json (ver catalogo.js). -->
+  <div class="areas" data-areas><noscript><p class="catalogo-error">Para ver las áreas de servicio necesitás tener JavaScript activado. También podés <a href="https://wa.me/5492646071925">escribirnos por WhatsApp</a> y te contamos todo.</p></noscript></div>
 
-    <article class="plan bento__celda" data-plan="basica">
-      <header class="plan__cabecera">
-        <h3 class="plan__nombre">Básica</h3>
-        <p class="plan__para">Para el negocio que todavía no tiene nada online.</p>
-      </header>
-      <p class="plan__precio"><span class="plan__moneda">$</span>100.000<span class="plan__unico">pago único</span></p>
-      <ul class="plan__lista">
-        <li>Sitio de una página, hasta 5 secciones</li>
-        <li>Diseño propio, no una plantilla</li>
-        <li>Impecable en celular</li>
-        <li>Botón de WhatsApp siempre visible</li>
-        <li>Formulario de contacto</li>
-        <li>Una ronda de cambios · entrega en 7 días</li>
-      </ul>
-      <a class="plan__cta iman" href="https://wa.me/5492646071925?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sica%20de%20%24100.000." target="_blank" rel="noopener" data-cursor="Consultar">Consultar por Básica</a>
-    </article>
-
-    <article class="plan plan--destacado bento__celda bento__celda--ancha" data-plan="pyme">
-      <span class="plan__cinta">El que más eligen</span>
-      <header class="plan__cabecera">
-        <h3 class="plan__nombre">PyME</h3>
-        <p class="plan__para">Para el negocio que ya funciona y necesita mostrarse como tal.</p>
-      </header>
-      <p class="plan__precio"><span class="plan__moneda">$</span>150.000<span class="plan__unico">pago único</span></p>
-      <ul class="plan__lista plan__lista--dos">
-        <li>Todo lo del plan Básica</li>
-        <li>Hasta 8 secciones o varias páginas</li>
-        <li>Galería o portfolio de trabajos</li>
-        <li>Animaciones y transiciones a medida</li>
-        <li>Optimización de velocidad de carga</li>
-        <li>Ficha de Google Business configurada</li>
-        <li>Dos rondas de cambios</li>
-        <li>Un mes de soporte post-entrega</li>
-      </ul>
-      <a class="plan__cta plan__cta--lleno iman" href="https://wa.me/5492646071925?text=Hola%2C%20me%20interesa%20el%20plan%20PyME%20de%20%24150.000." target="_blank" rel="noopener" data-cursor="Consultar">Consultar por PyME</a>
-    </article>
-
-    <article class="plan bento__celda" data-plan="personalizada">
-      <header class="plan__cabecera">
-        <h3 class="plan__nombre">Personalizada</h3>
-        <p class="plan__para">Para cuando el sitio tiene que hacer algo, no solo mostrar.</p>
-      </header>
-      <p class="plan__precio"><span class="plan__moneda">$</span>200.000<span class="plan__unico">pago único</span></p>
-      <ul class="plan__lista">
-        <li>Todo lo del plan PyME</li>
-        <li>Funcionalidad a medida: calculadora de presupuesto, buscador, catálogo con filtros</li>
-        <li>Páginas sin límite</li>
-        <li>Integraciones con lo que ya uses</li>
-        <li>Cambios hasta que estés conforme</li>
-        <li>Tres meses de soporte</li>
-      </ul>
-      <a class="plan__cta iman" href="https://wa.me/5492646071925?text=Hola%2C%20me%20interesa%20el%20plan%20Personalizada%20de%20%24200.000." target="_blank" rel="noopener" data-cursor="Consultar">Consultar por Personalizada</a>
-    </article>
-
-    <div class="incluido bento__celda bento__celda--ancha">
-      <h3 class="incluido__titulo">Va en todos los planes, sin cobrarlo aparte</h3>
-      <ul class="incluido__lista">
-        <li><span>Certificado SSL</span> el candado de "sitio seguro"</li>
-        <li><span>Diseño mobile-first</span> pensado para el celular primero</li>
-        <li><span>Carga rápida</span> optimizado para que no se caiga la visita</li>
-        <li><span>Textos incluidos</span> los escribimos nosotros con vos</li>
-        <li><span>Publicación</span> lo dejamos online y andando</li>
-        <li><span>Te explicamos todo</span> sin tecnicismos ni humo</li>
-      </ul>
-    </div>
-
-    <div class="nota bento__celda">
-      <p class="nota__titulo">¿Y el dominio y el hosting?</p>
-      <p>Van aparte porque se pagan al proveedor, no a nosotros. Ronda los <strong>$25.000 al año</strong> entre las dos cosas. Te lo dejamos contratado y configurado sin cobrarte la gestión.</p>
-    </div>
-
-  </div>
+  <p class="seccion__pie revelar"><a class="boton boton--fantasma iman" href="servicios.html" data-cursor="Ver">Ver el catálogo completo</a></p>
 </section>
 
-<!-- ======================= PORTFOLIO ======================= -->
-<section class="seccion" id="portfolio">
-  <div class="seccion__cabecera">
-    <p class="etiqueta revelar"><span class="etiqueta__num">02</span> Trabajos</p>
-    <h2 class="titulo revelar-t">Trabajos entregados y <em>muestras propias.</em></h2>
-    <p class="seccion__bajada revelar">
-      Todas las imágenes son capturas de sitios que existen, no maquetas. Las que dicen
-      «Muestra» las hicimos nosotros para mostrar hasta dónde llegamos; el resto son
-      clientes, y cada uno arrancó con un problema distinto — abajo está cuál era.
-    </p>
-  </div>
-
-  <div class="trabajos">
-
-    <article class="trabajo revelar-c">
-      <a class="trabajo__marco" href="https://lightsteelblue-opossum-344997.hostingersite.com/" target="_blank" rel="noopener" data-cursor="Visitar">
-        <img src="assets/portfolio/bacanes-800.webp"
-             srcset="assets/portfolio/bacanes-800.webp 800w, assets/portfolio/bacanes-1600.webp 1600w"
-             sizes="(max-width: 900px) 92vw, 46vw"
-             alt="Sitio de BACANES, barbería de San Juan" width="1600" height="1000" loading="lazy" decoding="async">
-        <span class="trabajo__ir">Ver el sitio</span>
-      </a>
-      <div class="trabajo__pie">
-        <h3 class="trabajo__nombre">BACANES</h3>
-        <p class="trabajo__rubro">Barbería · 4 locales · San Juan</p>
-        <p class="trabajo__texto">Manejaban los turnos por Instagram y se les perdían mensajes entre comentarios. Ahora cada local tiene su propio botón de WhatsApp con el turno prellenado.</p>
-      </div>
-    </article>
-
-    <!-- Muestras propias: van acá arriba, junto a BACANES, pero conservan el
-         sello para no hacerlas pasar por clientes. -->
-    <article class="trabajo revelar-c">
-      <a class="trabajo__marco" href="https://mediumpurple-gnu-359072.hostingersite.com/" target="_blank" rel="noopener" data-cursor="Visitar">
-        <span class="trabajo__sello">Muestra</span>
-        <img src="assets/portfolio/itaca-800.webp"
-             srcset="assets/portfolio/itaca-800.webp 800w, assets/portfolio/itaca-1600.webp 1600w"
-             sizes="(max-width: 900px) 92vw, 46vw"
-             alt="ÍTACA, tienda de cosmética botánica" width="1600" height="1000" loading="lazy" decoding="async">
-        <span class="trabajo__ir">Ver el sitio</span>
-      </a>
-      <div class="trabajo__pie">
-        <h3 class="trabajo__nombre">ÍTACA</h3>
-        <p class="trabajo__rubro">Cosmética · tienda con carrito</p>
-        <p class="trabajo__texto">Una tienda completa de punta a punta: catálogo de productos, carrito y checkout. La hicimos para mostrar cómo se ve una marca que vende online sin depender de Instagram.</p>
-      </div>
-    </article>
-
-    <article class="trabajo revelar-c">
-      <a class="trabajo__marco" href="https://darkorchid-frog-388124.hostingersite.com/" target="_blank" rel="noopener" data-cursor="Visitar">
-        <span class="trabajo__sello">Muestra</span>
-        <img src="assets/portfolio/bruma-800.webp"
-             srcset="assets/portfolio/bruma-800.webp 800w, assets/portfolio/bruma-1600.webp 1600w"
-             sizes="(max-width: 900px) 92vw, 46vw"
-             alt="BRUMA, tostaduría de café" width="1600" height="1000" loading="lazy" decoding="async">
-        <span class="trabajo__ir">Ver el sitio</span>
-      </a>
-      <div class="trabajo__pie">
-        <h3 class="trabajo__nombre">BRUMA</h3>
-        <p class="trabajo__rubro">Tostaduría de café · sitio editorial</p>
-        <p class="trabajo__texto">Formato editorial: scroll largo, fotos a pantalla completa y textos que cuentan el oficio. Es el ejemplo de cuando la marca se vende contando una historia, no listando productos.</p>
-      </div>
-    </article>
-
-    <article class="trabajo revelar-c">
-      <div class="trabajo__marco trabajo__marco--quieto">
-        <img src="assets/portfolio/print-800.webp"
-             srcset="assets/portfolio/print-800.webp 800w, assets/portfolio/print-1600.webp 1600w"
-             sizes="(max-width: 900px) 92vw, 46vw"
-             alt="Sitio de Print, tienda gráfica" width="1600" height="1000" loading="lazy" decoding="async">
-      </div>
-      <div class="trabajo__pie">
-        <h3 class="trabajo__nombre">Print</h3>
-        <p class="trabajo__rubro">Tienda gráfica · Rivadavia, San Juan</p>
-        <p class="trabajo__texto">Cada mural se cotiza a medida, así que no hay catálogo posible. Le hicimos una calculadora: el cliente carga medidas y material, y ve el precio antes de escribir.</p>
-      </div>
-    </article>
-
-    <article class="trabajo revelar-c">
-      <div class="trabajo__marco trabajo__marco--quieto">
-        <img src="assets/portfolio/ankara-800.webp"
-             srcset="assets/portfolio/ankara-800.webp 800w, assets/portfolio/ankara-1600.webp 1600w"
-             sizes="(max-width: 900px) 92vw, 46vw"
-             alt="Sitio de Ankaraplata, joyería de plata" width="1600" height="1000" loading="lazy" decoding="async">
-      </div>
-      <div class="trabajo__pie">
-        <h3 class="trabajo__nombre">Ankaraplata</h3>
-        <p class="trabajo__rubro">Joyería de plata · San Juan</p>
-        <p class="trabajo__texto">Tenían una tienda online desordenada, con fotos de distintos tamaños y categorías repetidas. La reordenamos entera para que se pueda comprar sin perderse.</p>
-      </div>
-    </article>
-
-    <article class="trabajo revelar-c">
-      <div class="trabajo__marco trabajo__marco--quieto">
-        <img src="assets/portfolio/ullum-800.webp"
-             srcset="assets/portfolio/ullum-800.webp 800w, assets/portfolio/ullum-1600.webp 1600w"
-             sizes="(max-width: 900px) 92vw, 46vw"
-             alt="Sitio institucional de la Municipalidad de Ullum" width="1600" height="1000" loading="lazy" decoding="async">
-      </div>
-      <div class="trabajo__pie">
-        <h3 class="trabajo__nombre">Municipalidad de Ullum</h3>
-        <p class="trabajo__rubro">Sitio institucional · San Juan</p>
-        <p class="trabajo__texto">El vecino no encontraba trámites ni teléfonos, y las novedades se publicaban solo en Facebook. Ordenamos todo en un sitio con sección de trámites y novedades propias.</p>
-      </div>
-    </article>
-
-  </div>
-
-  <!-- Invitación a la demo del panel: acá el cliente ya vio los trabajos y es
-       el momento de mostrarle que también se le puede hacer algo con gestión. -->
-  <aside class="invita-demo revelar-c">
-    <div class="invita-demo__texto">
-      <p class="etiqueta"><span class="etiqueta__punto"></span> Demostración en vivo</p>
-      <h3 class="invita-demo__titulo">¿Tu negocio necesita cargar productos y stock?</h3>
+<!-- ======================= RINDO ======================= -->
+<!-- Se oculta solo si el área "rindo" está inactiva en servicios.json. -->
+<section class="seccion" id="rindo" data-area-bloque="rindo">
+  <div class="destacado revelar-c">
+    <div class="destacado__texto">
+      <p class="etiqueta"><span class="etiqueta__num">02</span> Rindo · sistema propio</p>
+      <h2 class="titulo">Tu stock y tus ventas, <em>sin Excel.</em></h2>
       <p>
-        Podemos sumarle al sitio un panel para que administres todo vos, sin
-        depender de nadie. Entrá a la demo y probalo: cargá un producto, cambiale
-        el stock y mirá cómo se actualiza la tienda al instante.
+        Rindo es el sistema que desarrollamos para comercios que quieren tener los
+        números claros sin pelearse con planillas.
       </p>
-    </div>
-    <a class="boton boton--lleno iman" href="demo-panel.html" data-cursor="Probar">Probar la demo</a>
-  </aside>
-</section>
-
-<!-- ======================= NOSOTROS ======================= -->
-<section class="seccion seccion--nosotros" id="nosotros">
-  <div class="nosotros">
-    <div class="nosotros__texto">
-      <p class="etiqueta revelar"><span class="etiqueta__num">03</span> Nosotros</p>
-      <h2 class="titulo revelar-t">Somos chicos. <em>Por eso contestamos.</em></h2>
-
-      <p class="revelar">
-        Núcleo Digital es un estudio chico de San Juan. No hay ejecutivo de cuentas ni
-        formulario de tickets: hablás directo con quien te hace el sitio, de principio a fin.
-      </p>
-      <p class="revelar">
-        Arrancamos en 2025 haciendo la web de una barbería del barrio. Desde ahí siguieron
-        estudios de arquitectura, una clínica con cincuenta años encima, una tienda gráfica
-        y una municipalidad. Rubros distintos, siempre el mismo problema de fondo: el
-        negocio funciona, pero por internet no se nota.
-      </p>
-      <p class="revelar">
-        Trabajamos con pymes de San Juan y Mendoza. Cobramos una sola vez, entregamos el
-        sitio publicado, y te explicamos cómo tocar lo que quieras tocar. Sin cuotas, sin
-        quedarte atado a nosotros para cambiar un teléfono.
-      </p>
-
-      <ul class="valores revelar">
-        <li><strong>Sin plantillas.</strong> Cada sitio se diseña de cero para tu negocio.</li>
-        <li><strong>Sin cuotas.</strong> Pago único: el sitio queda a tu nombre.</li>
-        <li><strong>Sin desaparecer.</strong> Después de entregar seguimos disponibles.</li>
+      <ul class="plan__lista">
+        <li>Cargás la mercadería con una foto de la factura del proveedor, y la confirmás antes de que impacte.</li>
+        <li>Registrás ventas y compras con un audio o una foto.</li>
+        <li>Te avisa cuando un producto se está por terminar.</li>
+        <li>Ves ventas por hora, lo más vendido y tus márgenes.</li>
       </ul>
-    </div>
-
-    <aside class="nosotros__tarjeta revelar-c">
-      <div class="nosotros__marca">
-        <img src="assets/img/logo.webp" alt="Núcleo Digital" width="220" height="66" loading="lazy">
-      </div>
-      <dl class="ficha">
-        <div><dt>Dónde</dt><dd>San Juan, Argentina</dd></div>
-        <div><dt>Atendemos</dt><dd>San Juan y Mendoza</dd></div>
-        <div><dt>Desde</dt><dd>2025</dd></div>
-        <div><dt>Entrega</dt><dd>De 7 a 14 días</dd></div>
-        <div><dt>Cómo se paga</dt><dd>Una sola vez</dd></div>
-      </dl>
-      <a class="boton boton--wa boton--bloque iman" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" data-cursor="WhatsApp">Hablemos por WhatsApp</a>
-    </aside>
-  </div>
-</section>
-
-<!-- ======================= CONTACTO ======================= -->
-<section class="seccion" id="contacto">
-  <div class="seccion__cabecera">
-    <p class="etiqueta revelar"><span class="etiqueta__num">04</span> Contacto</p>
-    <h2 class="titulo revelar-t">Contanos qué necesitás. <em>Te respondemos hoy.</em></h2>
-  </div>
-
-  <div class="contacto">
-    <div class="contacto__directo revelar-c">
-      <p class="contacto__intro">Lo más rápido es escribirnos por WhatsApp. Contestamos en el día.</p>
-
-      <a class="boton boton--wa boton--grande iman" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." target="_blank" rel="noopener" data-cursor="WhatsApp">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.81.83-3.02-.2-.31a8.16 8.16 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
-        +54 9 264 607-1925
+      <div class="acciones">
+        <a class="boton boton--wa iman" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20quiero%20pedir%20una%20demo%20de%20Rindo." data-wa="Hola Núcleo Digital, quiero pedir una demo de Rindo." target="_blank" rel="noopener" data-cursor="WhatsApp">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.81.83-3.02-.2-.31a8.16 8.16 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+        Pedí una demo
       </a>
-
-      <ul class="contacto__datos">
-        <li><span>Mail</span> <a href="mailto:dearribaignacio@gmail.com">dearribaignacio@gmail.com</a></li>
-        <li><span>Zona</span> San Juan y Mendoza</li>
-        <li><span>Horario</span> Lunes a sábado, 9 a 20 h</li>
-      </ul>
+        <a class="boton boton--fantasma iman" href="servicios.html#rindo" data-cursor="Ver">Ver todo lo que hace</a>
+      </div>
     </div>
+    <div class="destacado__maqueta" data-maqueta-rindo></div>
+  </div>
+</section>
 
-    <!-- El formulario manda a Google Apps Script. Si todavia no esta configurado
-         (ver ENDPOINT_FORMULARIO en main.js), cae elegante a WhatsApp con el
-         mensaje ya armado, asi nunca se pierde una consulta. -->
-    <form class="formulario revelar-c" id="formulario" novalidate>
-      <p class="formulario__intro">O dejanos los datos y te escribimos nosotros.</p>
+<!-- ======================= CÓMO TRABAJAMOS ======================= -->
+<section class="seccion" id="como-trabajamos">
+  <div class="seccion__cabecera">
+    <p class="etiqueta revelar"><span class="etiqueta__num">03</span> Cómo trabajamos</p>
+    <h2 class="titulo revelar-t">Cuatro pasos. <em>Sin vueltas.</em></h2>
+  </div>
 
-      <div class="campo">
-        <label for="f-nombre">Tu nombre</label>
-        <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Cómo te llamás">
-      </div>
+  <ol class="pasos">
+    <li class="paso revelar-c">
+      <span class="paso__num" aria-hidden="true">01</span>
+      <h3>Charla por WhatsApp</h3>
+      <p>Nos contás qué hace tu negocio y qué te está faltando. Sin compromiso y sin tecnicismos.</p>
+    </li>
+    <li class="paso revelar-c">
+      <span class="paso__num" aria-hidden="true">02</span>
+      <h3>Propuesta</h3>
+      <p>Te mandamos por escrito qué te recomendamos, cuánto cuesta y cuánto tarda.</p>
+    </li>
+    <li class="paso revelar-c">
+      <span class="paso__num" aria-hidden="true">03</span>
+      <h3>Desarrollo</h3>
+      <p>Lo armamos y te lo vamos mostrando para que opines antes de terminar.</p>
+    </li>
+    <li class="paso revelar-c">
+      <span class="paso__num" aria-hidden="true">04</span>
+      <h3>Entrega y soporte</h3>
+      <p>Lo dejamos publicado y andando, te explicamos cómo usarlo y seguimos disponibles por WhatsApp.</p>
+    </li>
+  </ol>
+</section>
 
-      <div class="campo">
-        <label for="f-negocio">Tu negocio</label>
-        <input id="f-negocio" name="negocio" type="text" autocomplete="organization" placeholder="Nombre y rubro">
-      </div>
+<!-- ======================= PREGUNTAS FRECUENTES ======================= -->
+<section class="seccion" id="preguntas">
+  <div class="dividida">
+    <div class="seccion__cabecera">
+      <p class="etiqueta revelar"><span class="etiqueta__num">04</span> Preguntas frecuentes</p>
+      <h2 class="titulo revelar-t">Lo que siempre <em>nos preguntan.</em></h2>
+      <p class="seccion__bajada revelar">¿Te queda alguna duda? Escribinos por WhatsApp y la vemos.</p>
+    </div>
+    <div class="faq revelar-c">
+      <details class="pregunta">
+        <summary>¿Cuánto tardan en entregar?</summary>
+        <div class="pregunta__respuesta"><p>Depende de lo que armemos. La página del plan Básica se entrega en 7 días; para todo lo demás te pasamos el plazo por escrito en la propuesta, antes de empezar.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿Tengo que saber de computación?</summary>
+        <div class="pregunta__respuesta"><p>No. Lo armamos nosotros, lo dejamos andando y te explicamos cómo usarlo con palabras simples. Si algo no te sale, nos escribís por WhatsApp.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿Puedo pedir cambios después de la entrega?</summary>
+        <div class="pregunta__respuesta"><p>Sí. Los planes de página web incluyen rondas de cambios y un tiempo de soporte (lo ves en cada plan). Después podés sumar el mantenimiento mensual, que cubre cambios de textos, fotos y precios, o pedirnos un cambio puntual.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿Qué pasa con el dominio y el hosting?</summary>
+        <div class="pregunta__respuesta"><p>Van aparte porque se pagan al proveedor, no a nosotros: ronda los $25.000 al año entre las dos cosas. Te lo dejamos contratado y configurado sin cobrarte la gestión.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿Cómo se paga?</summary>
+        <div class="pregunta__respuesta"><p>Podés pagar con Mercado Pago.</p><p>Los planes de página web son de pago único. Los servicios que son mensuales, como el mantenimiento, se pagan por mes.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿En qué zona trabajan?</summary>
+        <div class="pregunta__respuesta"><p>Somos de San Juan y trabajamos con pymes de San Juan y Mendoza.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿Qué es Rindo?</summary>
+        <div class="pregunta__respuesta"><p>Es nuestro sistema propio para llevar el stock y las ventas de tu comercio sin planillas. Cargás la mercadería con una foto de la factura, registrás ventas con un audio y ves en un panel qué se vende y cuánto te queda. Pedinos una demo y te lo mostramos.</p></div>
+      </details>
+      <details class="pregunta">
+        <summary>¿Puedo empezar por una sola cosa?</summary>
+        <div class="pregunta__respuesta"><p>Sí. Podés arrancar por lo que más te urge, por ejemplo la página web o Google Maps, y sumar el resto cuando lo necesites.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
 
-      <div class="campo">
-        <label for="f-contacto">WhatsApp o mail</label>
-        <input id="f-contacto" name="contacto" type="text" autocomplete="tel" required placeholder="Por dónde te respondemos">
-      </div>
-
-      <div class="campo">
-        <label for="f-plan">Plan que te interesa</label>
-        <select id="f-plan" name="plan">
-          <option value="No sé todavía">No sé todavía</option>
-          <option value="Básica $100.000">Básica · $100.000</option>
-          <option value="PyME $150.000">PyME · $150.000</option>
-          <option value="Personalizada $200.000">Personalizada · $200.000</option>
-        </select>
-      </div>
-
-      <div class="campo">
-        <label for="f-mensaje">Contanos un poco</label>
-        <textarea id="f-mensaje" name="mensaje" rows="4" placeholder="Qué necesitás, qué tenés hoy, para cuándo"></textarea>
-      </div>
-
-      <!-- Trampa para bots: si viene con texto, se descarta el envio. -->
-      <div class="miel" aria-hidden="true">
-        <label for="f-web">No completar</label>
-        <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off">
-      </div>
-
-      <button class="boton boton--lleno boton--bloque iman" type="submit" data-cursor="Enviar">Enviar consulta</button>
-      <p class="formulario__aviso" id="aviso" role="status" aria-live="polite"></p>
-    </form>
+<section class="seccion">
+  <div class="cierre revelar-c">
+    <h2 class="titulo">¿Tenés un negocio y querés <em>ordenarlo online?</em></h2>
+    <p>Contanos qué hacés y qué te está faltando. Te respondemos por WhatsApp y te decimos por dónde conviene empezar.</p>
+    <div class="acciones">
+      <a class="boton boton--wa iman boton--grande" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." data-wa="Hola Núcleo Digital, vi la web y quiero consultarles." target="_blank" rel="noopener" data-cursor="WhatsApp">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.81.83-3.02-.2-.31a8.16 8.16 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+        Escribinos por WhatsApp
+      </a>
+      <a class="boton boton--fantasma boton--grande iman" href="contacto.html#armador" data-cursor="Armar">Armar mi solución</a>
+    </div>
   </div>
 </section>
 
@@ -466,21 +313,21 @@
 <!-- ======================= PIE ======================= -->
 <footer class="pie">
   <div class="pie__marca">
-    <img src="assets/img/logo.webp" alt="Núcleo Digital" width="180" height="54" loading="lazy">
-    <p>Diseño y desarrollo web a medida.<br>San Juan, Argentina.</p>
+    <img src="assets/img/logo.svg" alt="Núcleo Digital" width="180" height="54" loading="lazy">
+    <p>Soluciones digitales para pymes.<br>San Juan, Argentina.</p>
   </div>
-  <nav class="pie__nav" aria-label="Secciones">
-    <a href="#servicios">Servicios</a>
-    <a href="#portfolio">Trabajos</a>
-    <a href="demo-panel.html">Demo</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#contacto">Contacto</a>
+  <nav class="pie__nav" aria-label="Pie de página">
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="soluciones.html">Soluciones</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="contacto.html#armador">Armá tu solución</a>
   </nav>
-  <p class="pie__legal">© <span id="anio">2026</span> Núcleo Digital · nucleodigital.art</p>
+  <p class="pie__legal">© <span id="anio">2026</span> Núcleo Digital · San Juan y Mendoza</p>
 </footer>
 
-<!-- WhatsApp flotante, fijo en toda la pagina -->
-<a class="flotante" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp" data-cursor="WhatsApp">
+<!-- WhatsApp flotante, fijo en todas las páginas -->
+<a class="flotante" href="https://wa.me/5492646071925?text=Hola%20N%C3%BAcleo%20Digital%2C%20vi%20la%20web%20y%20quiero%20consultarles." data-wa="Hola Núcleo Digital, vi la web y quiero consultarles." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp" data-cursor="WhatsApp">
   <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.81.83-3.02-.2-.31a8.16 8.16 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
   <span class="flotante__globo">Escribinos</span>
 </a>
@@ -489,5 +336,6 @@
 <script src="lib/gsap.min.js"></script>
 <script src="lib/ScrollTrigger.min.js"></script>
 <script src="main.js"></script>
+<script src="catalogo.js"></script>
 </body>
 </html>
