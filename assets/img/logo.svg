@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="200" height="60" role="img" aria-label="Núcleo Digital">
+  <title>Núcleo Digital</title>
+  <!-- NUCLEO: trazos geométricos; la E son tres barras sueltas y la O es un óvalo. -->
+  <g fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linejoin="round">
+    <path d="M6.25 30V8.5L23.75 29.5V8"/>
+    <path d="M31.75 8V19A8.75 8.75 0 0 0 49.25 19V8"/>
+    <path d="M74 10.25H64A8.75 8.75 0 0 0 64 27.75H74"/>
+    <path d="M81.25 8V27.75H96"/>
+    <path d="M101 10.25H117M101 19H117M101 27.75H117"/>
+    <ellipse cx="139.5" cy="19" rx="14" ry="8.75"/>
+  </g>
+  <text x="37" y="44.5" textLength="92" lengthAdjust="spacing" fill="#ffb020"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700">DIGITAL</text>
+</svg>

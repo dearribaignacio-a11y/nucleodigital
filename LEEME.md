@@ -45,14 +45,15 @@ hace lo mismo que `.htaccess` en Hostinger: redirige `/portfolio`,
 Vercel publica lo que está en la rama `main`. Cada cambio en otra rama genera
 una vista previa aparte, sin tocar el sitio publicado.
 
-Falta subir al repo las imágenes de `assets/img/`: `logo.webp`,
-`favicon.svg`, `apple-touch-icon.png` y `og.jpg`.
+Las imágenes de `assets/img/` ya están en el repo: `logo.svg` (el logo en
+vector, nítido en cualquier pantalla), `favicon.svg`, `apple-touch-icon.png` y
+`og.jpg` (la vista previa del link).
 
 ## 2. Cómo se ve el link en WhatsApp
 
 Esto es lo que define la vista previa cuando mandás el link por chat:
 
-- La imagen es `assets/img/og.jpg` (1200×630).
+- La imagen es `assets/img/og.jpg` (1200×630): logo, título y bajada del Inicio.
 - El título y la descripción están en las etiquetas `og:` del `<head>` de
   `index.html`.
 
