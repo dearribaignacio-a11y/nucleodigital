@@ -175,13 +175,9 @@ node tools/revisar.js movil   # lo mismo en celular
 
 ## 6. Detalles técnicos que conviene saber
 
-**El logo.** El original es azul. La versión ámbar (`assets/img/logo.webp`) se
-generó remapeando el azul con ffmpeg. Si alguna vez necesitás rehacerla desde
-el original:
-
-```bash
-ffmpeg -i logo-original.jpg -vf "crop=1000:300:128:502,format=rgb24,geq=r='if(gt(b(X,Y),r(X,Y)+30), min(255,1.054*b(X,Y)), r(X,Y))':g='if(gt(b(X,Y),r(X,Y)+30), 0.727*b(X,Y), g(X,Y))':b='if(gt(b(X,Y),r(X,Y)+30), 0.132*b(X,Y), b(X,Y))'" plano.png
-```
+**El logo.** Está en `assets/img/logo.svg`, dibujado en vector: se edita con
+cualquier editor de texto o con Illustrator/Inkscape. "NUCLEO" va en blanco y
+"DIGITAL" en ámbar (`#ffb020`).
 
 **La escena 3D del inicio.** Está en `escena.js` y **solo se carga en
 computadoras**, después de que la página ya se pintó. En celular no se descarga
