@@ -419,6 +419,13 @@ p { margin: 0 0 1rem; }
 /* --- planes --- */
 .plan { display: flex; flex-direction: column; }
 .plan__nombre { font-size: clamp(1.9rem, 7vw, 2.4rem); }
+/* Sin precio a la vista, la cabecera del plan lleva la línea que antes
+   separaba el precio de la lista. */
+.plan__cabecera {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--borde);
+}
 .plan__para {
   margin: 0.4rem 0 0;
   color: var(--suave);
