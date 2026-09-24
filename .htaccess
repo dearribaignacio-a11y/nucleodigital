@@ -1,0 +1,72 @@
+# =========================================================================
+# Núcleo Digital — configuración de Apache para Hostinger
+# Comprime el texto y le pone caché largo a lo que no cambia.
+# Es lo que hace que el sitio abra rápido desde el chat de WhatsApp.
+# =========================================================================
+
+# ------------------------------------------------------- compresión (gzip)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Brotli comprime bastante mejor que gzip. Si el servidor lo tiene, se usa.
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------------ caché
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # El HTML nunca se cachea: es lo que permite que un cambio se vea al toque.
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # Fuentes e imágenes: un año. Si alguna cambia, se le cambia el nombre.
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  # CSS y JS: una semana. Suficiente para que vuele, corto para poder tocarlo.
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType text/javascript "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|webp|jpg|jpeg|png|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Un par de cabeceras de seguridad básicas.
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ------------------------------------------------------------ tipos MIME
+# Hostinger a veces no reconoce estos y el navegador los rechaza.
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType text/javascript .js .mjs
+  AddType model/gltf-binary .glb
+</IfModule>
+
+# --------------------------------------------------------------- limpieza
+# Sin listado de directorios.
+Options -Indexes
+
+# La carpeta tools/ es solo para desarrollo: si se subió por error, no se sirve.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^tools/ - [F,L]
+</IfModule>
