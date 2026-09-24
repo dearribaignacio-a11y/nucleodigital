@@ -133,7 +133,8 @@
       <div class="mockup" role="img" aria-label="Maqueta ilustrativa del panel de Rindo con datos de ejemplo: ventas del día, ventas por hora, productos más vendidos y alertas de stock bajo.">
         <div class="mockup__barra">
           <span class="mockup__puntos"><i></i><i></i><i></i></span>
-          <span class="mockup__titulo">Rindo · Panel</span>
+          <span class="rindo-logo" aria-hidden="true"><span class="rindo-logo__marca">R</span><span class="rindo-logo__nombre">Rindo</span></span>
+          <span class="mockup__titulo">Panel</span>
           <span class="mockup__estado">Hoy</span>
         </div>
         <div class="mockup__cuerpo">

@@ -932,6 +932,31 @@ p { margin: 0 0 1rem; }
 .mockup__puntos { display: flex; gap: 5px; }
 .mockup__puntos i { width: 8px; height: 8px; border-radius: 50%; background: var(--borde-fuerte); }
 .mockup__titulo { color: var(--suave); font-size: 0.78rem; font-weight: 600; }
+
+/* Logo de Rindo (mismo criterio que su componente Logo.tsx): la palabra va
+   en un solo color y el único elemento con color es el cuadrado con la R. */
+.rindo-logo { display: inline-flex; align-items: center; gap: 0.45rem; }
+.rindo-logo__marca {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--ambar);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 8%);
+  color: #14100a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rindo-logo__nombre {
+  color: var(--texto);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
 .mockup__estado {
   margin-left: auto;
   padding: 0.2rem 0.6rem;
