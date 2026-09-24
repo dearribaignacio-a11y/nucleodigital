@@ -130,6 +130,16 @@ acento de todo el sitio de una.
 
 ---
 
+## 3 bis. Datos pendientes para las preguntas frecuentes
+
+Se sacaron de la web hasta tenerlos. Cuando los tengas, sumalos a la
+respuesta que corresponde en `index.html` (sección PREGUNTAS FRECUENTES):
+
+- Plazos típicos de tienda online, Rindo y automatizaciones.
+- Cómo se cobran los cambios puntuales después de la entrega.
+- Otros medios de pago además de Mercado Pago, y si se pide seña o se paga en partes.
+- Si atienden a distancia otras provincias y si hacen reuniones presenciales.
+
 ## 4. El formulario de contacto
 
 Hoy funciona **sin backend**: cuando alguien lo completa y le da enviar, se le
