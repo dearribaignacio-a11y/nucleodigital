@@ -107,11 +107,13 @@ tiene que ser uno de los nombres de la lista `ICONOS` de `catalogo.js`.
 
 Va sin `+`, sin espacios y sin guiones: `5492646071925`.
 
-### Los precios y qué incluye cada plan
+### Qué incluye cada plan
 
 En `servicios.html`, sección `<!-- Planes de página web`. Cada plan es un
-bloque `<article class="plan">`. El precio está en `<p class="plan__precio">`
-y los puntos en la lista `<ul class="plan__lista">`.
+bloque `<article class="plan">` y sus puntos están en la lista
+`<ul class="plan__lista">`. La web no muestra precios: se consultan por
+WhatsApp. Si algún día querés volver a mostrarlos, agregá debajo de
+`</header>` una línea `<p class="plan__precio">$100.000</p>` (el estilo ya está).
 
 ### Preguntas frecuentes y "Cómo trabajamos"
 
