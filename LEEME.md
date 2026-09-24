@@ -36,6 +36,18 @@ assets/     lib/
 
 ---
 
+## 1 bis. Publicarlo en Vercel
+
+El repo ya está listo para Vercel (sitio estático, sin compilar). `vercel.json`
+hace lo mismo que `.htaccess` en Hostinger: redirige `/portfolio`,
+`/trabajos` y `/demo-panel.html` a Soluciones y ajusta el caché.
+
+Vercel publica lo que está en la rama `main`. Cada cambio en otra rama genera
+una vista previa aparte, sin tocar el sitio publicado.
+
+Falta subir al repo las imágenes de `assets/img/`: `logo.webp`,
+`favicon.svg`, `apple-touch-icon.png` y `og.jpg`.
+
 ## 2. Cómo se ve el link en WhatsApp
 
 Esto es lo que define la vista previa cuando mandás el link por chat:
